@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capware - A.K.A. RatWare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+
+    <header class="header">
+
+        <div class="container">
+
+            <div class="header-content">
+
+                <h1>
+                    <i class="fas fa-terminal"></i>
+                    <span id="typewriter"></span>
+                </h1>
+
+                <nav class="nav">
+                    <button class="nav-tab active" data-tab="home">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                    <button class="nav-tab" data-tab="products">
+                        <i class="fas fa-store"></i> Products
+                    </button>
+                    <button class="nav-tab" data-tab="about">
+                        <i class="fas fa-info-circle"></i> About
+                    </button>
+                    <button class="nav-tab" data-tab="contact">
+                        <i class="fas fa-envelope"></i> Contact
+                    </button>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search products...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <div class="tab-content active" id="home-tab">
+
+            <section class="hero">
+            
+                <div class="hero-background">
+                    <div class="grid-pattern"></div>
+                </div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-in-delay">Capware</h1>
+                    <p class="hero-subtitle animate-fade-in-delay-2">Undetected & Always Updated</p>
+                    <p class="hero-description animate-fade-in-delay-3">Tired of losing and dying over and over? CapWare exists so you don't have to. Undetected Cheats, Instant Updates. Get Ready to be THE BEST (without the grind) ;)</p>
+                    <div class="hero-actions animate-fade-in-delay-4">
+                        <button class="btn btn-primary" onclick="switchTab('products')">
+                            <span>View Products</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-secondary" onclick="switchTab('about')">
+                            <span>About</span>
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <div class="hero-stats animate-fade-in-delay-5">
+                        <div class="stat-item">
+                            <div class="stat-number">+10</div>
+                            <div class="stat-label">Projects OAT</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">+60</div>
+                            <div class="stat-label">Customers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">+250</div>
+                            <div class="stat-label">Vouches</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title-small">What We Offer</h2>
+                        <p class="section-description">Gaming tools and support for your needs</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card animate-on-scroll">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Secure & Updated</h3>
+                            <p>Regular updates and secure software</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Performance</h3>
+                            <p>Optimized tools for better performance</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>Support</h3>
+                            <p>Customer support via Discord and email</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll">
+                            <div class="feature-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h3>Regular Updates</h3>
+                            <p>Updates to keep tools working</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll">
+                            <div class="feature-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3>Safe & Private</h3>
+                            <p>Secure transactions and privacy</p>
+                        </div>
+                        <div class="feature-card animate-on-scroll">
+                            <div class="feature-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <h3>Quality Tools</h3>
+                            <p>Various tools for different games</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="javascript:void(0)" data-tab="home"><i class="fas fa-home"></i> Home</a></li>
+                                <li><a href="javascript:void(0)" data-tab="products"><i class="fas fa-store"></i> Products</a></li>
+                                <li><a href="javascript:void(0)" data-tab="about"><i class="fas fa-info-circle"></i> About</a></li>
+                                <li><a href="javascript:void(0)" data-tab="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Support</h4>
+                            <ul>
+                                <li><i class="fas fa-envelope"></i> support@capware.fun</li>
+                                <li><i class="fab fa-discord"></i> Discord: gd1z</li>
+                                <li><i class="fas fa-clock"></i> Support Available</li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="footer-bottom">
+                <p> <a href="https://guns.lol/cap" target="_blank" rel="noopener noreferrer"> &copy; 2023-2026 Capware. All rights reserved. </a> </p>
+                </div>
+            </div>
+        </footer>
+     </div>
+
+        <div class="tab-content" id="products-tab">
+            <section class="products">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll">Our Products</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-category="all">All</button>
+                        <button class="filter-btn" data-category="Roblox">Roblox</button>
+                        <button class="filter-btn" data-category="Fortnite">Fortnite</button>
+                        <button class="filter-btn" data-category="Valorant">Valorant</button>
+                        <button class="filter-btn" data-category="CS2">CS2</button>
+                    </div>
+                    <div class="products-grid" id="productsGrid">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="tab-content" id="about-tab">
+            <section class="about">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll">About Us</h2>
+                    <div class="about-content">
+                        <p>Capware provides gaming tools and software for various games. We focus on delivering working products and providing support when needed.</p>
+                        <p>Our tools are regularly updated and we offer customer support through Discord and email.</p>
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Quality Software</span>
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Regular Updates</span>
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Secure Transactions</span>
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Customer Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="tab-content" id="contact-tab">
+            <section class="contact">
+                <div class="container">
+                    <h2 class="section-title animate-on-scroll">Contact Us</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>support@capware.fun</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-discord"></i>
+                                <span>Discord: gd1z</span>
+                            </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Support Available</span>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Cart</h2>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
