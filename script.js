@@ -1,100 +1,185 @@
 const products = [
     {
         id: 1,
-        name: 'Roblox External',
-        description: 'Fully Undetected Roblox External Tool.',
-        category: 'Roblox',
-        image: 'https://cdn.capware.fun/Qz7TBnz.png',
-        plans: {
-            lifetime: { price: 5.50, originalPrice: 9.99, discount: 45 }
-        }
+        name: "Ardent Banking",
+        category: ["QBCore", "Qbox"],
+        description: "Advanced banking system with clean UI and transaction history.",
+        longDescription: `
+            <p>Ardent Banking allows your players to manage their finances with ease. Featuring a sleek, modern UI, this banking system is fully optimized for ESX servers.</p>
+            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
+            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
+        `,
+        features: [
+            "Modern & Clean UI",
+            "Transaction History",
+            "Loan System with Interest",
+            "Shared Accounts for Societies",
+            "ATM Robbery Integration",
+            "Optimized 0.00ms idle"
+        ],
+        image: "https://ardentdev.tebex.io/package/5673009/image",
+        video: "0QSdxoH6254",
+        price: "$24.99",
+        tebexLink: "https://ardentdev.tebex.io/package/5673009"
     },
     {
         id: 2,
-        name: 'Fortnite External', 
-        description: 'Undetected Fortnite External.',
-        category: 'Fortnite',
-        image: 'https://cdn.capware.fun/image.png',
-        plans: {
-            daily: { price: 3.99, originalPrice: 4.99, discount: 20 },
-            weekly: { price: 9.99, originalPrice: 13.99, discount: 29 },
-            monthly: { price: 19.99, originalPrice: 29.99, discount: 33 }
-        }
+        name: "Ardent Fishing",
+        category: ["QBCore", "Qbox"],
+        description: "Ardent Fishing allows your players to fish in the game.",
+        longDescription: `
+            <p>Ardent Fishing allows your players to fish in the game. Featuring a sleek, modern UI, this fishing system is fully optimized for QBCore servers.</p>
+            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
+            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
+        `,
+        features: [
+            "Framework Agnostic (Standalone)",
+            "Circular Status Indicators",
+            "Vehicle HUD with Speedometer",
+            "Compass & Street Name",
+            "Cinematic Mode",
+            "Fully Configurable CSS"
+        ],
+        image: "https://via.placeholder.com/800x600/1e293b/10b981?text=Ardent+HUD+Preview",
+        video: "u7PfSNzjNe0",
+        price: "$19.99",
+        tebexLink: "https://tebex.io/package/example2"
     },
     {
         id: 3,
-        name: 'Fortnite Internal',
-        description: 'Advanced Fortnite Internal Tool.',
-        category: 'Fortnite',
-        image: 'https://i.ytimg.com/vi/3jrYALUpslI/hq720.jpg',
-        plans: {
-            daily: { price: 5.99, originalPrice: 7.99, discount: 25 },
-            weekly: { price: 14.99, originalPrice: 19.99, discount: 25 },
-            monthly: { price: 29.99, originalPrice: 44.99, discount: 33 }
-        }
+        name: "Ardent Tablet",
+        category: ["QBCore", "Qbox"],
+        description: "Ardent Tablet allows your players to use a tablet in the game.",
+        longDescription: `
+            <p>Ardent Tablet allows your players to use a tablet in the game. Featuring a sleek, modern UI, this tablet system is fully optimized for QBCore servers.</p>
+            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
+            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
+        `,
+        features: [
+            "Citizen & Vehicle Database",
+            "Warrants & BOLOs",
+            "Incident Reports",
+            "Evidence System",
+            "EMS Medical Records",
+            "Dark/Light Mode Support"
+        ],
+        image: "https://via.placeholder.com/800x600/1e293b/3b82f6?text=Ardent+MDT+Preview",
+        video: "0QSdxoH6254",
+        price: "$34.99",
+        tebexLink: "https://tebex.io/package/example3"
     },
     {
         id: 4,
-        name: 'HWID Spoofer',
-        description: 'Remove HWID Bans on EAC, BE, Vanguard.',
-        category: 'Tools',
-        image: '',
-        plans: {
-            daily: { price: 4.99, originalPrice: 7.99, discount: 38 },
-            weekly: { price: 12.99, originalPrice: 19.99, discount: 35 },
-            monthly: { price: 24.99, originalPrice: 39.99, discount: 38 }
-        }
+        name: "Ardent Loading Screen",
+        category: ["Standalone"],
+        description: "Ardent Loading Screen allows your server to have a loading screen.",
+        longDescription: `
+            <p>Ardent Loading Screen allows your server to have a loading screen. Featuring a sleek, modern UI, this loading screen system is fully optimized for QBCore servers.</p>
+            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
+            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
+        `,
+        features: [
+            "Video Background Support",
+            "Music Player with Playlist",
+            "Server Information Display",
+            "Staff Team Showcase",
+            "Project Landing Page Style",
+            "Easy Configuration"
+        ],
+        image: "https://via.placeholder.com/800x600/1e293b/f59e0b?text=Loading+Screen+Preview",
+        video: "0QSdxoH6254",
+        price: "$14.99",
+        tebexLink: "https://tebex.io/package/example4"
     },
     {
         id: 5,
-        name: 'Valorant Colorbot',
-        description: 'DMA Compatible Valorant Colorbot.',
-        category: 'Valorant',
-        image: '',
-        plans: {
-            daily: { price: 9.99, originalPrice: 14.99, discount: 33 },
-            weekly: { price: 29.99, originalPrice: 44.99, discount: 33 },
-            monthly: { price: 44.99, originalPrice: 69.99, discount: 36 }
-        }
+        name: "Ardent Item List",
+        category: ["QBCore", "Qbox"],
+        description: "Sleek drag-and-drop inventory system with crafting and shops.",
+        longDescription: `
+            <p>A robust inventory system designed for Qbox. The intuitive drag-and-drop interface makes managing items a breeze for your players.</p>
+            <p>Features include a crafting system with blueprints, player-owned shops, and item decay. The metadata support allows for unique items with specific properties.</p>
+        `,
+        features: [
+            "Drag & Drop Interface",
+            "Crafting System",
+            "Player Shops",
+            "Item Metadata & Decay",
+            "Hotbar Support",
+            "Optimized Performance"
+        ],
+        image: "https://via.placeholder.com/800x600/1e293b/8b5cf6?text=Ardent+Inventory+Preview",
+        video: "0QSdxoH6254",
+        price: "$29.99",
+        tebexLink: "https://tebex.io/package/example5"
     },
     {
         id: 6,
-        name: 'CS2 External',
-        description: 'CapWare Undetected CS2 External.',
-        category: 'CS2',
-        image: '',
-        plans: {
-            free: { price: 0.00, originalPrice: 0.00, discount: 100 }
-        }
+        name: "Ardent PostJob",
+        category: ["QBCore", "Qbox"],
+        description: "Beautiful multi-character selection screen with ped preview.",
+        longDescription: `
+            <p>Welcome your players with style. This multi-character script offers a cinematic character selection screen with high-quality ped previews.</p>
+            <p>Players can view their characters' details, such as job, cash, and bank balance, before spawning. The spawn selection map is integrated for a seamless experience.</p>
+        `,
+        features: [
+            "Ped Preview Animation",
+            "Character Stats Display",
+            "Spawn Selector Integration",
+            "Cinematic Camera Angles",
+            "Slot Management",
+            "Easy Setup"
+        ],
+        image: "https://via.placeholder.com/800x600/1e293b/ec4899?text=Multicharacter+Preview",
+        video: "0QSdxoH6254",
+        price: "$19.99",
+        tebexLink: "https://tebex.io/package/example6"
     }
 ];
 
-let cart = JSON.parse(localStorage.getItem('capware-cart')) || [];
+
 let currentCategory = 'all';
 let searchTerm = '';
 
-function switchTab(tabName) {    
+// Notification spam protection
+let notificationHistory = [];
+const NOTIFICATION_SPAM_LIMIT = 5; // Maximum notifications in time window
+const NOTIFICATION_SPAM_WINDOW = 2000; // Time window in milliseconds (2 seconds)
+
+function switchTab(tabName) {
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
+        // Hide with delay for fade effect handling if needed, but for now simple class toggle
+        // To ensure product details are hidden when switching main tabs
+        if (tabName !== 'product-details' && tab.id === 'product-details-tab') {
+            // Ensure detail tab is hidden
+        }
     });
-    
-    const selectedTab = document.getElementById(`${tabName}-tab`);
+
+    const selectedTab = document.getElementById(tabName === 'product-details' ? 'product-details-tab' : `${tabName}-tab`);
     if (selectedTab) {
         selectedTab.classList.add('active');
-    } 
+    }
     else {
         console.warn('Tab not found:', `${tabName}-tab`); // Debug
     }
-    
+
     document.querySelectorAll('.nav-tab').forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.tab === tabName) {
             btn.classList.add('active');
         }
     });
-    
+
+    // About ve Contact tablarında body scroll'unu engelle
+    if (tabName === 'about' || tabName === 'contact' || tabName === 'product-details') {
+        document.body.classList.add('no-scroll');
+    } else {
+        document.body.classList.remove('no-scroll');
+    }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+
     if (tabName === 'products') {
         displayProducts();
         setupScrollAnimations();
@@ -103,23 +188,26 @@ function switchTab(tabName) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
-    displayCart();
     setupScrollAnimations();
-    
+    // Initialize products if on products tab (or default)
+    // For now we just initialize listeners
+
     document.querySelectorAll('.nav-tab').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             switchTab(btn.dataset.tab);
         });
     });
-    
+
     document.querySelectorAll('a[data-tab]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             switchTab(link.dataset.tab);
         });
     });
+
+    // Initial display
+    displayProducts();
 });
 
 function setupScrollAnimations() {
@@ -144,80 +232,94 @@ function setupScrollAnimations() {
 function displayProducts(filteredProducts = products) {
     const productsGrid = document.getElementById('productsGrid');
     if (!productsGrid) return;
-    
+
     productsGrid.innerHTML = '';
+
+    if (filteredProducts.length === 0) {
+        productsGrid.innerHTML = `
+            <div class="no-products-message">
+                <i class="fas fa-search"></i>
+                <h3>No products found</h3>
+                <p>Try adjusting your search or category filter.</p>
+            </div>
+        `;
+        return;
+    }
 
     filteredProducts.forEach((product, index) => {
         const productCard = document.createElement('div');
-        productCard.className = 'product-card';
+        productCard.className = 'product-card animate-on-scroll'; // Added animation class
         productCard.style.animationDelay = `${index * 0.1}s`;
-        
-        const dailyPlan = product.plans.daily || { price: 0, originalPrice: 0, discount: 0 };
-        const weeklyPlan = product.plans.weekly || { price: 0, originalPrice: 0, discount: 0 };
-        const monthlyPlan = product.plans.monthly || { price: 0, originalPrice: 0, discount: 0 };
-        const lifetimePlan = product.plans.lifetime || { price: 0, originalPrice: 0, discount: 0 };
-        const freePlan = product.plans.free || { price: 0, originalPrice: 0, discount: 0 };
-        
+
+        // Add click event to view product details
+        productCard.addEventListener('click', () => viewProduct(product.id));
+
         productCard.innerHTML = `
             <div class="product-card-inner">
                 <div class="product-image-section">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300/1f2937/6366f1?text=${encodeURIComponent(product.name)}'">
-                    <div class="product-overlay"></div>
+                    <img src="https://img.youtube.com/vi/${product.video}/maxresdefault.jpg" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300/1f2937/6366f1?text=${encodeURIComponent(product.name)}'">
+                    <div class="product-overlay">
+                    </div>
                 </div>
                 
                 <div class="product-info-section">
                     <div class="product-title-wrapper">
                         <h3 class="product-title">${product.name}</h3>
-                        <span class="category-badge">${product.category}</span>
+                        ${product.category.map(c => `<span class="category-badge">${c}</span>`).join('')}
                     </div>
                     <p class="product-text">${product.description}</p>
-                    
-                    ${!product.plans.free && !product.plans.lifetime ? `<div class="pricing-tabs-wrapper">
-                        ${product.plans.daily ? `<button class="pricing-tab active" data-plan="daily" onclick="return false"><span class="plan-name">Daily</span><span class="plan-cost">$${dailyPlan.price.toFixed(2)}</span></button>` : ''}
-                        ${product.plans.weekly ? `<button class="pricing-tab" data-plan="weekly" onclick="return false"><span class="plan-name">Weekly</span><span class="plan-cost">$${weeklyPlan.price.toFixed(2)}</span></button>` : ''}
-                        ${product.plans.monthly ? `<button class="pricing-tab" data-plan="monthly" onclick="return false"><span class="plan-name">Monthly</span><span class="plan-cost">$${monthlyPlan.price.toFixed(2)}</span></button>` : ''}
-                    </div>` : ''}
-                    ${product.plans.lifetime ? `<div class="pricing-tabs-wrapper">
-                        <button class="pricing-tab active" data-plan="lifetime" onclick="return false"><span class="plan-name">Lifetime</span><span class="plan-cost">$${lifetimePlan.price.toFixed(2)}</span></button>
-                    </div>` : ''}
-                    
-                    <div class="price-display-box">
-                        <div class="price-left">
-                            ${product.plans.lifetime ? `<div class="current-price" id="current-${product.id}">$${lifetimePlan.price.toFixed(2)}</div><div class="original-price" id="original-${product.id}" style="display:none">$${lifetimePlan.originalPrice.toFixed(2)}</div>` : ''}
-                            ${product.plans.free ? `<div class="current-price" id="current-${product.id}">FREE</div><div class="original-price" id="original-${product.id}" style="display:none">$${freePlan.originalPrice.toFixed(2)}</div>` : ''}
-                            ${!product.plans.lifetime && !product.plans.free ? `<div class="current-price" id="current-${product.id}">$${dailyPlan.price.toFixed(2)}</div><div class="original-price" id="original-${product.id}">$${dailyPlan.originalPrice.toFixed(2)}</div>` : ''}
-                        </div>
-                        <div class="savings-badge" id="savings-${product.id}" ${product.plans.lifetime ? 'style="display:none"' : ''}>${product.plans.lifetime ? lifetimePlan.discount : product.plans.free ? '100' : dailyPlan.discount}% OFF</div>
+                    <div class="product-footer">
+                         <span class="product-price">${product.price}</span>
                     </div>
-                    
-                    <button class="add-to-cart-btn" data-plan="${product.plans.lifetime ? 'lifetime' : product.plans.free ? 'free' : 'daily'}" onclick="addToCart(${product.id}, '${product.plans.lifetime ? 'lifetime' : product.plans.free ? 'free' : 'daily'}')">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
                 </div>
             </div>
         `;
-        
-        const tabs = productCard.querySelectorAll('.pricing-tab');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const selectedPlan = tab.dataset.plan;
-                const plan = product.plans[selectedPlan];
-                
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                productCard.querySelector(`#current-${product.id}`).textContent = `$${plan.price.toFixed(2)}`;
-                productCard.querySelector(`#original-${product.id}`).textContent = `$${plan.originalPrice.toFixed(2)}`;
-                productCard.querySelector(`#savings-${product.id}`).textContent = `${plan.discount}% OFF`;
-                
-                const btn = productCard.querySelector('.add-to-cart-btn');
-                btn.dataset.plan = selectedPlan;
-                btn.onclick = () => addToCart(product.id, selectedPlan);
-            });
-        });
-        
+
         productsGrid.appendChild(productCard);
     });
+}
+
+function viewProduct(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+
+    // Populate Video
+    document.getElementById('detailVideo').src = `https://www.youtube.com/embed/${product.video}?rel=0&modestbranding=1`;
+    document.getElementById('detailTitle').textContent = product.name;
+    const detailCategoryEl = document.getElementById('detailCategory');
+    detailCategoryEl.innerHTML = product.category.map(c => `<span class="category-badge">${c}</span>`).join('');
+    document.getElementById('detailShortDesc').textContent = product.description;
+
+    // Populate Long Description (HTML supported)
+    const longDescContainer = document.getElementById('detailLongDesc');
+    longDescContainer.innerHTML = product.longDescription;
+
+    // Populate Features
+    const featuresList = document.getElementById('detailFeatures');
+    featuresList.innerHTML = '';
+    product.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
+        featuresList.appendChild(li);
+    });
+
+    document.getElementById('detailPrice').textContent = product.price;
+    document.getElementById('detailBuyBtn').href = product.tebexLink;
+
+    // Switch View
+    // Hide all other tabs
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+    // Show details tab
+    const detailsTab = document.getElementById('product-details-tab');
+    detailsTab.classList.add('active');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function backToProducts() {
+    switchTab('products');
 }
 
 function setupFilterButtons() {
@@ -238,14 +340,14 @@ function filterProducts() {
     let filtered = products;
 
     if (currentCategory !== 'all') {
-        filtered = filtered.filter(p => p.category === currentCategory);
+        filtered = filtered.filter(p => p.category.includes(currentCategory));
     }
 
     if (searchTerm) {
-        filtered = filtered.filter(p => 
+        filtered = filtered.filter(p =>
             p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             p.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            p.category.toLowerCase().includes(searchTerm.toLowerCase())
+            p.category.some(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
         );
     }
 
@@ -264,179 +366,153 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
 });
 
-function addToCart(productId, plan = 'monthly') {
-    const product = products.find(p => p.id === productId);
-    const planData = product.plans[plan];
-    
-    const cartItem = {
-        id: productId,
-        name: product.name,
-        category: product.category,
-        plan: plan,
-        price: planData.price,
-        originalPrice: planData.originalPrice,
-        discount: planData.discount,
-        image: product.image,
-        quantity: 1
-    };
-    
-    const existingItem = cart.find(item => item.id === productId && item.plan === plan);
 
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push(cartItem);
-    }
 
-    localStorage.setItem('capware-cart', JSON.stringify(cart));
-    updateCartCount();
-    displayCart();
-    
-    const planLabel = plan.charAt(0).toUpperCase() + plan.slice(1);
-    showNotification(`${product.name} (${planLabel}) added to cart!`);
-}
-
-function displayCart() {
-    const cartItems = document.getElementById('cartItems');
-    if (!cartItems) return;
-    
-    if (cart.length === 0) {
-        cartItems.innerHTML = `
-            <div class="empty-cart">
-                <i class="fas fa-shopping-cart"></i>
-                <p>Your cart is empty</p>
-            </div>
-        `;
-    } else {
-        cartItems.innerHTML = cart.map((item, index) => `
-            <div class="cart-item">
-                <img src="${item.image || ''}" alt="${item.name}" class="cart-item-image" onerror="this.src='https://via.placeholder.com/80x80/6366f1/ffffff?text=Product'">
-                <div class="cart-item-info">
-                    <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-plan">${item.plan ? item.plan.charAt(0).toUpperCase() + item.plan.slice(1) : 'Standard'}</div>
-                    <div class="cart-item-price">$${item.price.toFixed(2)}</div>
-                    <div class="cart-item-controls">
-                        <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
-                        <button class="remove-item" onclick="removeFromCart(${index})">Remove</button>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    updateCartTotal();
-}
-
-function updateQuantity(index, change) {
-    if (cart[index]) {
-        if (change < 0 && cart[index].quantity <= 1) {
-            return;
-        }
-        cart[index].quantity += change;
-        localStorage.setItem('capware-cart', JSON.stringify(cart));
-        displayCart();
-        updateCartCount();
-    }
-}
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    localStorage.setItem('capware-cart', JSON.stringify(cart));
-    displayCart();
-    updateCartCount();
-}
-
-function updateCartTotal() {
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const cartTotalEl = document.getElementById('cartTotal');
-    if (cartTotalEl) {
-        cartTotalEl.textContent = `$${total.toFixed(2)}`;
-    }
-}
-
-function updateCartCount() {
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const cartCountEl = document.getElementById('cartCount');
-    if (cartCountEl) {
-        cartCountEl.textContent = count;
-        if (count === 0) {
-            cartCountEl.style.display = 'none';
-        } else {
-            cartCountEl.style.display = 'flex';
-        }
-    }
-}
-
-function toggleCart() {
-    const sidebar = document.getElementById('cartSidebar');
-    const overlay = document.getElementById('cartOverlay');
-    if (sidebar) sidebar.classList.toggle('open');
-    if (overlay) overlay.classList.toggle('show');
-}
-
-function checkout() {
-    if (cart.length === 0) {
-        showNotification('Your cart is empty!', 'error');
-        return;
-    }
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    showNotification(`Checkout page coming soon!\n\nTotal: $${total.toFixed(2)}`, 'info');
-}
 
 function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    const bgColor = type === 'error' ? '#ef4444' : type === 'info' ? '#6366f1' : '#10b981';
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${bgColor};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        z-index: 3000;
-        animation: slideIn 0.3s ease;
-        max-width: 350px;
-        font-weight: 500;
-        white-space: pre-line;
-    `;
-    notification.textContent = message;
-    document.body.appendChild(notification);
+    // Spam protection - Check if too many notifications in short time
+    const now = Date.now();
+    notificationHistory = notificationHistory.filter(timestamp => now - timestamp < NOTIFICATION_SPAM_WINDOW);
 
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    if (notificationHistory.length >= NOTIFICATION_SPAM_LIMIT) {
+        return; // Block notification to prevent spam
+    }
+
+    notificationHistory.push(now);
+
+    // Container'ı oluştur veya mevcut olanı kullan
+    let container = document.querySelector('.notification-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'notification-container';
+        document.body.appendChild(container);
+    }
+
+    // Bildirim elemanı oluştur
+    const notification = document.createElement('div');
+    notification.className = `notification ${type} `;
+
+    // İkon belirle
+    let icon;
+    let title;
+    switch (type) {
+        case 'error':
+            icon = '<i class="fas fa-exclamation-circle"></i>';
+            title = 'Error';
+            break;
+        case 'info':
+            icon = '<i class="fas fa-info-circle"></i>';
+            title = 'Info';
+            break;
+        default:
+            icon = '<i class="fas fa-check-circle"></i>';
+            title = 'Success';
+    }
+
+    // Bildirim içeriği
+    notification.innerHTML = `
+        <div class="notification-icon">${icon}</div>
+        <div class="notification-content">
+            <div class="notification-title">${title}</div>
+            <div class="notification-message">${message}</div>
+        </div>
+        <button class="notification-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="notification-progress"></div>
+    `;
+
+    // Container'a ekle (biraz gecikme ile animasyon için)
+    container.appendChild(notification);
+
+    // Force reflow for animation
+    notification.offsetHeight;
+
+    // Close butonu
+    const closeBtn = notification.querySelector('.notification-close');
+    const progressBar = notification.querySelector('.notification-progress');
+    const iconElement = notification.querySelector('.notification-icon');
+
+    // Otomatik kapatma (3.5 saniye)
+    let autoClose = setTimeout(() => {
+        removeNotification(notification);
+    }, 3500);
+
+    // Close butonu tıklama
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearTimeout(autoClose);
+        removeNotification(notification);
+    });
+
+    // Tıklanınca kapat (close butonu hariç) + ripple efekti
+    notification.addEventListener('click', (e) => {
+        if (!e.target.closest('.notification-close')) {
+            // Ripple efekti
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+position: absolute;
+border - radius: 50 %;
+background: rgba(255, 255, 255, 0.3);
+width: 20px;
+height: 20px;
+left: ${e.offsetX} px;
+top: ${e.offsetY} px;
+transform: translate(-50 %, -50 %) scale(0);
+animation: ripple 0.6s ease - out;
+pointer - events: none;
+`;
+            notification.style.position = 'relative';
+            notification.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+
+            clearTimeout(autoClose);
+            setTimeout(() => removeNotification(notification), 200);
+        }
+    });
+
+    // Hover durumunda otomatik kapanmayı durdur
+    let hoverTimeout;
+    notification.addEventListener('mouseenter', () => {
+        clearTimeout(autoClose);
+        if (progressBar) {
+            progressBar.style.animationPlayState = 'paused';
+        }
+    });
+
+    notification.addEventListener('mouseleave', () => {
+        if (progressBar && progressBar.style.animationPlayState === 'paused') {
+            const remainingTime = (progressBar.offsetWidth / notification.offsetWidth) * 3500;
+            progressBar.style.animation = 'none';
+            progressBar.offsetHeight; // Force reflow
+            progressBar.style.animation = `notificationProgress ${remainingTime}ms linear forwards`;
+        }
+
+        clearTimeout(autoClose);
+        autoClose = setTimeout(() => {
+            removeNotification(notification);
+        }, Math.max(1000, (progressBar ? (progressBar.offsetWidth / notification.offsetWidth) * 3500 : 3000)));
+    });
 }
 
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
+function removeNotification(notification) {
+    if (!notification || !notification.parentNode) return;
+
+    notification.classList.add('hiding');
+
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.remove();
         }
-        to {
-            transform: translateX(0);
-            opacity: 1;
+
+        // Container boşsa kaldır
+        const container = document.querySelector('.notification-container');
+        if (container && container.children.length === 0) {
+            container.remove();
         }
-    }
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+    }, 400);
+}
 
 document.querySelectorAll('.footer-section a[data-tab]').forEach(link => {
     link.addEventListener('click', (e) => {
@@ -447,7 +523,7 @@ document.querySelectorAll('.footer-section a[data-tab]').forEach(link => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const text = "CapWare";
+    const text = "ArdentDev";
 
     const SPEED = {
         type: [90, 140],
