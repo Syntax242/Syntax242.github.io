@@ -139,7 +139,6 @@ const products = [
 
 
 let currentCategory = 'all';
-let searchTerm = '';
 
 // Notification spam protection
 let notificationHistory = [];
@@ -147,6 +146,14 @@ const NOTIFICATION_SPAM_LIMIT = 5; // Maximum notifications in time window
 const NOTIFICATION_SPAM_WINDOW = 2000; // Time window in milliseconds (2 seconds)
 
 function switchTab(tabName) {
+    // Early return if trying to switch to the currently active tab
+    const targetTabId = tabName === 'product-details' ? 'product-details-tab' : `${tabName}-tab`;
+    const targetTab = document.getElementById(targetTabId);
+
+    if (targetTab && targetTab.classList.contains('active')) {
+        return; // Already on this tab
+    }
+
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
         // Hide with delay for fade effect handling if needed, but for now simple class toggle
@@ -170,9 +177,10 @@ function switchTab(tabName) {
             btn.classList.add('active');
         }
     });
+    updateNavSlider();
 
-    // About ve Contact tablarında body scroll'unu engelle
-    if (tabName === 'about' || tabName === 'contact' || tabName === 'product-details') {
+    // Product details tab body scroll engelle
+    if (tabName === 'product-details') {
         document.body.classList.add('no-scroll');
     } else {
         document.body.classList.remove('no-scroll');
@@ -181,7 +189,7 @@ function switchTab(tabName) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     if (tabName === 'products') {
-        displayProducts();
+        filterProducts();
         setupScrollAnimations();
         setupFilterButtons();
     }
@@ -208,6 +216,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial display
     displayProducts();
+    setupFilterButtons();
+
+    // Initialize nav slider
+    requestAnimationFrame(() => updateNavSlider());
+
+    // Recalculate sliders on window resize
+    window.addEventListener('resize', () => {
+        updateCategorySlider();
+        updateNavSlider();
+    });
 });
 
 function setupScrollAnimations() {
@@ -224,7 +242,7 @@ function setupScrollAnimations() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.animate-on-scroll, .section-title, .about-content').forEach(el => {
+    document.querySelectorAll('.animate-on-scroll, .section-title, .docs-content').forEach(el => {
         observer.observe(el);
     });
 }
@@ -327,13 +345,61 @@ function setupFilterButtons() {
         btn.removeEventListener('click', handleFilterClick);
         btn.addEventListener('click', handleFilterClick);
     });
+    updateCategoryCounts();
+    requestAnimationFrame(() => updateCategorySlider());
+}
+
+function updateNavSlider() {
+    const activeTab = document.querySelector('.nav-tab.active');
+    const slider = document.querySelector('.nav-slider');
+    if (!activeTab || !slider) return;
+
+    const nav = document.querySelector('.nav');
+    const navRect = nav.getBoundingClientRect();
+    const tabRect = activeTab.getBoundingClientRect();
+
+    slider.style.width = tabRect.width + 'px';
+    slider.style.left = (tabRect.left - navRect.left) + 'px';
 }
 
 function handleFilterClick(e) {
+    const targetBtn = e.target.closest('.filter-btn');
+    if (!targetBtn || targetBtn.classList.contains('active')) {
+        return; // Already on this category or didn't click a button
+    }
+
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    e.target.closest('.filter-btn').classList.add('active');
-    currentCategory = e.target.closest('.filter-btn').dataset.category;
+    targetBtn.classList.add('active');
+    currentCategory = targetBtn.dataset.category;
+    updateCategorySlider();
     filterProducts();
+}
+
+function updateCategorySlider() {
+    const activeBtn = document.querySelector('.filter-btn.active');
+    const slider = document.querySelector('.category-slider');
+    if (!activeBtn || !slider) return;
+
+    const container = document.querySelector('.category-filter');
+    const containerRect = container.getBoundingClientRect();
+    const btnRect = activeBtn.getBoundingClientRect();
+
+    slider.style.width = btnRect.width + 'px';
+    slider.style.left = (btnRect.left - containerRect.left) + 'px';
+}
+
+function updateCategoryCounts() {
+    const categories = ['all', 'QBCore', 'Qbox', 'ESX', 'Standalone'];
+    categories.forEach(cat => {
+        const el = document.getElementById('count-' + cat);
+        if (el) {
+            if (cat === 'all') {
+                el.textContent = products.length;
+            } else {
+                el.textContent = products.filter(p => p.category.includes(cat)).length;
+            }
+        }
+    });
 }
 
 function filterProducts() {
@@ -343,28 +409,8 @@ function filterProducts() {
         filtered = filtered.filter(p => p.category.includes(currentCategory));
     }
 
-    if (searchTerm) {
-        filtered = filtered.filter(p =>
-            p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            p.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            p.category.some(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
-        );
-    }
-
     displayProducts(filtered);
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                searchTerm = e.target.value;
-                filterProducts();
-            });
-        }
-    }, 100);
-});
 
 
 
@@ -578,3 +624,469 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loop();
 });
+
+// =============================================
+// GitBook-Style Documentation System
+// =============================================
+
+const docsData = [
+    {
+        group: 'Getting Started',
+        icon: 'fas fa-bolt',
+        pages: [
+            {
+                id: 'introduction',
+                title: 'Introduction',
+                content: `
+                    <h1 class="docs-title">Introduction</h1>
+                    <p class="docs-text">Welcome to the official <strong>ArdentDev</strong> documentation. This comprehensive guide will help you install, configure, and manage all our premium FiveM resources efficiently.</p>
+                    <div class="docs-alert docs-alert-info"><i class="fas fa-info-circle"></i><div><strong>Note:</strong> All resources require a minimum server artifact version of <code>5848</code> or higher.</div></div>
+                    <h2 class="docs-subtitle">What We Offer</h2>
+                    <p class="docs-text">ArdentDev provides premium, optimized scripts for QBCore, Qbox, ESX, and Standalone frameworks. All our scripts come with encryption, regular updates, and full Discord support.</p>
+                `
+            },
+            {
+                id: 'installation',
+                title: 'Installation',
+                content: `
+                    <h1 class="docs-title">Installation Guide</h1>
+                    <p class="docs-text">Follow these steps to install any ArdentDev resource on your server.</p>
+                    <ol class="docs-list">
+                        <li>Download the resource from your Keymaster or Tebex account.</li>
+                        <li>Extract the folder into your server's <code>resources/[ardent]</code> directory.</li>
+                        <li>Configure the script's <code>config.lua</code> file.</li>
+                        <li>Add the resource to your <code>server.cfg</code>.</li>
+                        <li>Restart your FiveM server.</li>
+                    </ol>
+                    <div class="code-block-wrapper"><div class="code-header"><span>server.cfg</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-cfg"># ArdentDev Premium Resources
+ensure ardent-banking
+ensure ardent-fishing
+ensure ardent-tablet
+ensure ardent-loadingscreen</code></pre></div>
+                `
+            },
+            {
+                id: 'configuration',
+                title: 'Configuration',
+                content: `
+                    <h1 class="docs-title">General Configuration</h1>
+                    <p class="docs-text">Almost all scripts provide a <code>config.lua</code>. Below is a standard template.</p>
+                    <div class="docs-alert docs-alert-warning"><i class="fas fa-exclamation-triangle"></i><div><strong>Important:</strong> Never modify core logic files. It will void your warranty.</div></div>
+                    <div class="code-block-wrapper"><div class="code-header"><span>config.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">Config = {}
+
+-- Framework: 'qbcore', 'qbox', 'esx', 'standalone'
+Config.Framework = 'qbcore'
+
+-- Database: 'oxmysql', 'ghmattimysql', 'mysql-async'
+Config.Database = 'oxmysql'
+
+-- Enable debug logging
+Config.Debug = false
+
+-- Locale settings
+Config.Locale = 'en'</code></pre></div>
+                `
+            }
+        ]
+    },
+    {
+        group: 'Ardent Banking',
+        icon: 'fas fa-landmark',
+        pages: [
+            {
+                id: 'banking-overview',
+                title: 'Overview',
+                content: `
+                    <h1 class="docs-title">Ardent Banking</h1>
+                    <p class="docs-text">Ardent Banking is our flagship financial system with a modern UI, transaction history, societies, and more.</p>
+                    <h2 class="docs-subtitle">Features</h2>
+                    <ul class="docs-list"><li>Modern & Clean UI</li><li>Full Transaction History</li><li>Loan System with Interest</li><li>Shared Accounts for Societies</li><li>ATM Robbery Integration</li><li>Optimized 0.00ms idle</li></ul>
+                `
+            },
+            {
+                id: 'banking-config',
+                title: 'Configuration',
+                content: `
+                    <h1 class="docs-title">Banking Configuration</h1>
+                    <p class="docs-text">Configure your banking system by editing <code>config.lua</code> in the <code>ardent-banking</code> resource folder.</p>
+                    <div class="code-block-wrapper"><div class="code-header"><span>config.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">Config = {}
+
+Config.Framework = 'qbcore'
+Config.Database = 'oxmysql'
+
+-- Interest rate for loans (percentage)
+Config.LoanInterest = 5.0
+
+-- Maximum loan amount
+Config.MaxLoan = 100000
+
+-- Enable society accounts
+Config.SocietyAccounts = true
+
+-- ATM robbery enabled
+Config.ATMRobbery = true
+Config.ATMRobberyCooldown = 3600 -- seconds</code></pre></div>
+                `
+            },
+            {
+                id: 'banking-exports',
+                title: 'Exports & Events',
+                content: `
+                    <h1 class="docs-title">Exports & Events</h1>
+                    <p class="docs-text">Use these exports to interact with the banking system from other scripts.</p>
+                    <h2 class="docs-subtitle">Server Exports</h2>
+                    <div class="code-block-wrapper"><div class="code-header"><span>server.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">-- Get player balance
+local balance = exports['ardent-banking']:GetBalance(source)
+
+-- Add money to player's bank
+exports['ardent-banking']:AddMoney(source, 5000)
+
+-- Remove money from player's bank
+exports['ardent-banking']:RemoveMoney(source, 2500)
+
+-- Get transaction history
+local history = exports['ardent-banking']:GetTransactions(source, 50)</code></pre></div>
+                    <h2 class="docs-subtitle">Client Exports</h2>
+                    <div class="code-block-wrapper"><div class="code-header"><span>client.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">-- Open the banking UI
+exports['ardent-banking']:OpenUI()
+
+-- Close the banking UI
+exports['ardent-banking']:CloseUI()</code></pre></div>
+                    <h2 class="docs-subtitle">Server Events</h2>
+                    <div class="code-block-wrapper"><div class="code-header"><span>server.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">-- Listen for successful transactions
+AddEventHandler('ardent-banking:transactionComplete', function(src, type, amount)
+    print(('[Banking] Player %s: %s $%d'):format(src, type, amount))
+end)</code></pre></div>
+                `
+            }
+        ]
+    },
+    {
+        group: 'Ardent Fishing',
+        icon: 'fas fa-water',
+        pages: [
+            {
+                id: 'fishing-overview',
+                title: 'Overview',
+                content: `
+                    <h1 class="docs-title">Ardent Fishing</h1>
+                    <p class="docs-text">A realistic fishing experience with multiple rod types, bait systems, and a fully interactive minigame.</p>
+                    <h2 class="docs-subtitle">Features</h2>
+                    <ul class="docs-list"><li>Multiple fishing rod types</li><li>Bait system with rarity</li><li>Interactive fishing minigame</li><li>Fish market/NPC selling</li><li>Leaderboard system</li><li>Optimized performance</li></ul>
+                `
+            },
+            {
+                id: 'fishing-config',
+                title: 'Configuration',
+                content: `
+                    <h1 class="docs-title">Fishing Configuration</h1>
+                    <div class="code-block-wrapper"><div class="code-header"><span>config.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">Config = {}
+
+Config.Framework = 'qbcore'
+
+-- Fishing spots (coordinates)
+Config.Spots = {
+    { coords = vector3(-1850.5, -1248.3, 8.6), label = 'Del Perro Pier' },
+    { coords = vector3(1299.8, 4216.7, 33.9), label = 'Sandy Shores Lake' },
+}
+
+-- Fish types & rarity
+Config.Fish = {
+    { name = 'bass', label = 'Bass', price = 25, rarity = 0.4 },
+    { name = 'trout', label = 'Trout', price = 40, rarity = 0.3 },
+    { name = 'salmon', label = 'Salmon', price = 65, rarity = 0.2 },
+    { name = 'swordfish', label = 'Swordfish', price = 150, rarity = 0.1 },
+}</code></pre></div>
+                `
+            }
+        ]
+    },
+    {
+        group: 'Ardent Tablet',
+        icon: 'fas fa-mobile-alt',
+        pages: [
+            {
+                id: 'tablet-overview',
+                title: 'Overview',
+                content: `
+                    <h1 class="docs-title">Ardent Tablet</h1>
+                    <p class="docs-text">A feature-rich tablet system for police MDT, EMS records, and citizen databases.</p>
+                    <h2 class="docs-subtitle">Features</h2>
+                    <ul class="docs-list"><li>Citizen & Vehicle Database</li><li>Warrants & BOLOs</li><li>Incident Reports</li><li>Evidence System</li><li>EMS Medical Records</li><li>Dark/Light Mode</li></ul>
+                `
+            },
+            {
+                id: 'tablet-config',
+                title: 'Configuration',
+                content: `
+                    <h1 class="docs-title">Tablet Configuration</h1>
+                    <div class="code-block-wrapper"><div class="code-header"><span>config.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">Config = {}
+
+Config.Framework = 'qbcore'
+
+-- Jobs that can access the tablet
+Config.AllowedJobs = {
+    'police', 'ambulance', 'bcso', 'sasp', 'doj'
+}
+
+-- Command to open tablet
+Config.Command = 'tablet'
+
+-- Keybind (FiveM registered key)
+Config.Keybind = 'F6'</code></pre></div>
+                `
+            },
+            {
+                id: 'tablet-events',
+                title: 'Events & API',
+                content: `
+                    <h1 class="docs-title">Tablet Events & API</h1>
+                    <h2 class="docs-subtitle">NUI Callbacks</h2>
+                    <div class="code-block-wrapper"><div class="code-header"><span>client.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">-- Open tablet programmatically
+exports['ardent-tablet']:OpenTablet()
+
+-- Close tablet
+exports['ardent-tablet']:CloseTablet()
+
+-- Check if tablet is open
+local isOpen = exports['ardent-tablet']:IsOpen()</code></pre></div>
+                    <h2 class="docs-subtitle">Server-Side</h2>
+                    <div class="code-block-wrapper"><div class="code-header"><span>server.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">-- Search citizens
+exports['ardent-tablet']:SearchCitizen(firstname, lastname)
+
+-- Create warrant
+exports['ardent-tablet']:CreateWarrant(targetId, reason, issuerId)</code></pre></div>
+                `
+            }
+        ]
+    },
+    {
+        group: 'Ardent Loading Screen',
+        icon: 'fas fa-tv',
+        pages: [
+            {
+                id: 'loading-overview',
+                title: 'Overview',
+                content: `
+                    <h1 class="docs-title">Ardent Loading Screen</h1>
+                    <p class="docs-text">A premium loading screen with video backgrounds, a built-in music player, server info, and staff showcase.</p>
+                    <h2 class="docs-subtitle">Features</h2>
+                    <ul class="docs-list"><li>Video Background Support</li><li>Music Player with Playlist</li><li>Server Information Display</li><li>Staff Team Showcase</li><li>Fully Configurable via JS</li><li>Easy Setup</li></ul>
+                `
+            },
+            {
+                id: 'loading-config',
+                title: 'Configuration',
+                content: `
+                    <h1 class="docs-title">Loading Screen Configuration</h1>
+                    <p class="docs-text">Edit <code>config.js</code> in the resource folder to customize your loading screen.</p>
+                    <div class="code-block-wrapper"><div class="code-header"><span>config.js</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-javascript">const config = {
+    serverName: "My Awesome Server",
+    
+    // Background video URL
+    backgroundVideo: "https://cdn.example.com/bg.mp4",
+    
+    // Music playlist
+    music: [
+        { title: "Chill Vibes", src: "music/track1.mp3" },
+        { title: "Night Drive", src: "music/track2.mp3" },
+    ],
+    
+    // Staff members
+    staff: [
+        { name: "John", role: "Owner", avatar: "img/john.png" },
+        { name: "Jane", role: "Developer", avatar: "img/jane.png" },
+    ]
+};</code></pre></div>
+                `
+            }
+        ]
+    }
+];
+
+let currentDocPage = 'introduction';
+
+function initDocs() {
+    buildDocsSidebar();
+    loadDocPage('introduction');
+
+    const searchInput = document.getElementById('docsSearchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            filterDocsSidebar(e.target.value.trim().toLowerCase());
+        });
+    }
+}
+
+function buildDocsSidebar(filter = '') {
+    const container = document.getElementById('docsSidebarContent');
+    if (!container) return;
+    container.innerHTML = '';
+
+    docsData.forEach(group => {
+        const matchingPages = group.pages.filter(p =>
+            !filter || p.title.toLowerCase().includes(filter) || group.group.toLowerCase().includes(filter)
+        );
+        if (matchingPages.length === 0) return;
+
+        const groupEl = document.createElement('div');
+        groupEl.className = 'sidebar-group';
+
+        const isOpen = filter || matchingPages.some(p => p.id === currentDocPage);
+
+        groupEl.innerHTML = `
+            <div class="sidebar-group-header ${isOpen ? 'open' : ''}" onclick="toggleSidebarGroup(this)">
+                <span><i class="${group.icon}"></i> ${group.group}</span>
+                <i class="fas fa-chevron-right sidebar-chevron"></i>
+            </div>
+            <ul class="sidebar-group-items ${isOpen ? 'open' : ''}">
+                ${matchingPages.map(p => `
+                    <li>
+                        <a href="#" class="sidebar-page-link ${p.id === currentDocPage ? 'active' : ''}" data-page="${p.id}" onclick="event.preventDefault(); loadDocPage('${p.id}')">
+                            ${p.title}
+                        </a>
+                    </li>
+                `).join('')}
+            </ul>
+        `;
+        container.appendChild(groupEl);
+    });
+}
+
+function toggleSidebarGroup(headerEl) {
+    headerEl.classList.toggle('open');
+    const items = headerEl.nextElementSibling;
+    items.classList.toggle('open');
+}
+
+function filterDocsSidebar(query) {
+    buildDocsSidebar(query);
+}
+
+function loadDocPage(pageId) {
+    currentDocPage = pageId;
+    const mainContent = document.getElementById('docsMainContent');
+    if (!mainContent) return;
+
+    let page = null;
+    for (const group of docsData) {
+        page = group.pages.find(p => p.id === pageId);
+        if (page) break;
+    }
+
+    if (!page) {
+        mainContent.innerHTML = '<p class="docs-text">Page not found.</p>';
+        return;
+    }
+
+    // Build flat page list for prev/next
+    const allPages = [];
+    docsData.forEach(g => g.pages.forEach(p => allPages.push({ ...p, group: g.group })));
+    const currentIdx = allPages.findIndex(p => p.id === pageId);
+    const currentGroup = allPages[currentIdx]?.group;
+    const prevPage = currentIdx > 0 ? allPages[currentIdx - 1] : null;
+    const nextPage = currentIdx < allPages.length - 1 ? allPages[currentIdx + 1] : null;
+
+    const navHtml = `
+        <div class="docs-page-nav">
+            ${prevPage ? `<a href="#" class="docs-nav-btn docs-nav-prev" onclick="event.preventDefault(); loadDocPage('${prevPage.id}')">
+                <span class="docs-nav-direction">← Previous</span>
+                ${prevPage.group !== currentGroup ? `<span class="docs-nav-group">${prevPage.group}</span>` : ''}
+                <span class="docs-nav-title">${prevPage.title}</span>
+            </a>` : '<div></div>'}
+            ${nextPage ? `<a href="#" class="docs-nav-btn docs-nav-next" onclick="event.preventDefault(); loadDocPage('${nextPage.id}')">
+                <span class="docs-nav-direction">Next →</span>
+                ${nextPage.group !== currentGroup ? `<span class="docs-nav-group">${nextPage.group}</span>` : ''}
+                <span class="docs-nav-title">${nextPage.title}</span>
+            </a>` : '<div></div>'}
+        </div>
+    `;
+
+    mainContent.innerHTML = `<div class="docs-section-block">${page.content}</div>${navHtml}`;
+
+    // Update active state in sidebar
+    document.querySelectorAll('.sidebar-page-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.page === pageId);
+    });
+
+    // Auto-open the group containing the active page
+    buildDocsSidebar(document.getElementById('docsSearchInput')?.value?.trim()?.toLowerCase() || '');
+
+    // Apply syntax highlighting
+    applySyntaxHighlighting();
+
+    // Scroll main content to top
+    const docsTab = document.getElementById('docs-tab');
+    if (docsTab) docsTab.scrollTop = 0;
+}
+
+// Lightweight Syntax Highlighter
+function applySyntaxHighlighting() {
+    document.querySelectorAll('#docsMainContent pre code').forEach(codeEl => {
+        const lang = (codeEl.className.match(/language-(\w+)/) || [])[1] || '';
+        const raw = codeEl.textContent;
+        codeEl.innerHTML = highlightSyntax(raw, lang);
+    });
+}
+
+function highlightSyntax(code, lang) {
+    // Escape HTML first
+    let escaped = code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+    if (lang === 'lua') {
+        // Comments
+        escaped = escaped.replace(/(--.*)/g, '<span class="syn-comment">$1</span>');
+        // Strings
+        escaped = escaped.replace(/('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")/g, '<span class="syn-string">$1</span>');
+        // Keywords
+        const luaKw = /\b(local|function|end|if|then|else|elseif|return|for|while|do|repeat|until|in|not|and|or|true|false|nil|break|goto)\b/g;
+        escaped = escaped.replace(luaKw, '<span class="syn-keyword">$1</span>');
+        // Numbers
+        escaped = escaped.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-number">$1</span>');
+        // Config / global identifiers
+        escaped = escaped.replace(/\b(Config)\b/g, '<span class="syn-global">$1</span>');
+    } else if (lang === 'javascript' || lang === 'js') {
+        // Comments
+        escaped = escaped.replace(/(\/\/.*)/g, '<span class="syn-comment">$1</span>');
+        // Strings
+        escaped = escaped.replace(/('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*`)/g, '<span class="syn-string">$1</span>');
+        // Keywords
+        const jsKw = /\b(const|let|var|function|return|if|else|for|while|class|new|this|import|export|from|default|async|await|try|catch|throw|typeof|instanceof|true|false|null|undefined)\b/g;
+        escaped = escaped.replace(jsKw, '<span class="syn-keyword">$1</span>');
+        // Numbers
+        escaped = escaped.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-number">$1</span>');
+    } else if (lang === 'cfg') {
+        // Comments (lines starting with #)
+        escaped = escaped.replace(/(#.*)/g, '<span class="syn-comment">$1</span>');
+        // ensure keywords
+        escaped = escaped.replace(/\b(ensure|start|stop|restart)\b/g, '<span class="syn-keyword">$1</span>');
+    }
+
+    return escaped;
+}
+
+function copyCode(btn) {
+    const codeBlock = btn.closest('.code-block-wrapper').querySelector('code');
+    const text = codeBlock.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const icon = btn.querySelector('i');
+        icon.className = 'fas fa-check';
+        btn.style.color = '#4ade80';
+        setTimeout(() => {
+            icon.className = 'fas fa-copy';
+            btn.style.color = '';
+        }, 2000);
+    });
+}
+
+// Initialize docs when switching to the docs tab
+const origSwitchTab = switchTab;
+switchTab = function (tabName) {
+    origSwitchTab(tabName);
+    if (tabName === 'docs') {
+        initDocs();
+    }
+};

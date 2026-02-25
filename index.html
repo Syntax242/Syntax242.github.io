@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ardent Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,40 +16,21 @@
 <body class="dark-theme">
 
     <header class="header">
-
-        <div class="container">
-
-            <div class="header-content">
-
-                <h1>
-                    <i class="fas fa-terminal"></i>
-                    <span id="typewriter"></span>
-                </h1>
-
-                <nav class="nav">
-                    <button class="nav-tab active" data-tab="home">
-                        <i class="fas fa-home"></i> Home
-                    </button>
-                    <button class="nav-tab" data-tab="products">
-                        <i class="fas fa-store"></i> Products
-                    </button>
-                    <button class="nav-tab" data-tab="about">
-                        <i class="fas fa-info-circle"></i> About
-                    </button>
-                    <button class="nav-tab" data-tab="contact">
-                        <i class="fas fa-envelope"></i> Contact
-                    </button>
-                </nav>
-
-                <div class="header-actions">
-                    <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Search products...">
-                        <i class="fas fa-search"></i>
-                    </div>
-
-                </div>
-
+        <div class="header-inner">
+            <div class="header-logo">
+                <span class="logo-icon"><i class="fas fa-terminal"></i></span>
+                <span class="logo-text" id="typewriter"></span>
             </div>
+            <nav class="nav">
+                <div class="nav-slider"></div>
+                <button class="nav-tab active" data-tab="home">Home</button>
+                <button class="nav-tab" data-tab="products">Products</button>
+                <button class="nav-tab" data-tab="docs">Docs</button>
+            </nav>
+            <a href="https://discord.gg/ardentdev" target="_blank" class="header-cta">
+                <i class="fab fa-discord"></i>
+                <span>Discord</span>
+            </a>
         </div>
     </header>
 
@@ -64,110 +49,25 @@
                     <p class="hero-description animate-fade-in-delay-3">High-quality FiveM Scripts, UI Designs, and
                         Custom Development. Optimize your server with ArdentDev.</p>
                     <div class="hero-actions animate-fade-in-delay-4">
-                        <button class="btn btn-primary" onclick="switchTab('products')">
-                            <i class="fas fa-code"></i> Browse Scripts
+                        <button class="btn-hero btn-hero-primary" onclick="switchTab('products')">
+                            <span class="btn-content">
+                                <i class="fas fa-code"></i> Browse Scripts
+                            </span>
+                            <div class="btn-glow"></div>
                         </button>
-                        <button class="btn btn-secondary" onclick="switchTab('about')">
-                            <i class="fas fa-info-circle"></i> Learn More
+                        <button class="btn-hero btn-hero-secondary" onclick="switchTab('docs')">
+                            <span class="btn-content">
+                                Visit Docs <i class="fas fa-arrow-right"></i>
+                            </span>
                         </button>
                     </div>
-                    <div class="hero-stats animate-fade-in-delay-5">
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Scripts</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">1k+</span>
-                            <span class="stat-label">Clients</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Support</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="scroll-indicator">
-                    <i class="fas fa-chevron-down"></i>
                 </div>
             </section>
 
-            <section class="features">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title-small">What We Offer</h2>
-                        <p class="section-description">Gaming tools and support for your needs</p>
-                    </div>
-                    <div class="features-grid">
-                        <div class="feature-card animate-on-scroll">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Secure & Updated</h3>
-                            <p>Regular updates and secure software</p>
-                        </div>
-                        <div class="feature-card animate-on-scroll">
-                            <div class="feature-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <h3>Performance</h3>
-                            <p>Optimized tools for better performance</p>
-                        </div>
-                        <div class="feature-card animate-on-scroll">
-                            <div class="feature-icon">
-                                <i class="fas fa-headset"></i>
-                            </div>
-                            <h3>Support</h3>
-                            <p>Customer support via Discord and email</p>
-                        </div>
-                        <div class="feature-card animate-on-scroll">
-                            <div class="feature-icon">
-                                <i class="fas fa-sync-alt"></i>
-                            </div>
-                            <h3>Regular Updates</h3>
-                            <p>Updates to keep tools working</p>
-                        </div>
-                        <div class="feature-card animate-on-scroll">
-                            <div class="feature-icon">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <h3>Safe & Private</h3>
-                            <p>Secure transactions and privacy</p>
-                        </div>
-                        <div class="feature-card animate-on-scroll">
-                            <div class="feature-icon">
-                                <i class="fas fa-box"></i>
-                            </div>
-                            <h3>Quality Tools</h3>
-                            <p>Various tools for different games</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <footer class="footer">
                 <div class="container">
-                    <div class="footer-content">
-                        <div class="footer-section">
-                            <h4>Quick Links</h4>
-                            <ul>
-                                <li><a href="javascript:void(0)" data-tab="home"><i class="fas fa-home"></i> Home</a>
-                                </li>
-                                <li><a href="javascript:void(0)" data-tab="products"><i class="fas fa-store"></i>
-                                        Products</a></li>
-                                <li><a href="javascript:void(0)" data-tab="about"><i class="fas fa-info-circle"></i>
-                                        About</a></li>
-                                <li><a href="javascript:void(0)" data-tab="contact"><i class="fas fa-envelope"></i>
-                                        Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>Support</h4>
-                            <ul>
-                                <li><i class="fas fa-envelope"></i> support@ardentdev.shop</li>
-                                <li><i class="fab fa-discord"></i> Discord: .gg/ardentdev</li>
-                            </ul>
-                        </div>
-                    </div>
+
                     <div class="footer-bottom">
                         <p> <a href="https://cdn.capware.fun/sananeamk.mp3" target="_blank" rel="noopener noreferrer">
                                 &copy;
@@ -185,12 +85,28 @@
                 </div>
                 <div class="container">
                     <h2 class="section-title animate-on-scroll">Our Products</h2>
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-category="all">All</button>
-                        <button class="filter-btn" data-category="QBCore">QBCore</button>
-                        <button class="filter-btn" data-category="Qbox">Qbox</button>
-                        <button class="filter-btn" data-category="ESX">ESX</button>
-                        <button class="filter-btn" data-category="Standalone">Standalone</button>
+                    <div class="category-filter">
+                        <div class="category-slider"></div>
+                        <button class="filter-btn active" data-category="all">
+                            <span>All</span>
+                            <span class="filter-count" id="count-all">0</span>
+                        </button>
+                        <button class="filter-btn" data-category="QBCore">
+                            <span>QBCore</span>
+                            <span class="filter-count" id="count-QBCore">0</span>
+                        </button>
+                        <button class="filter-btn" data-category="Qbox">
+                            <span>Qbox</span>
+                            <span class="filter-count" id="count-Qbox">0</span>
+                        </button>
+                        <button class="filter-btn" data-category="ESX">
+                            <span>ESX</span>
+                            <span class="filter-count" id="count-ESX">0</span>
+                        </button>
+                        <button class="filter-btn" data-category="Standalone">
+                            <span>Standalone</span>
+                            <span class="filter-count" id="count-Standalone">0</span>
+                        </button>
                     </div>
                     <div class="products-grid" id="productsGrid">
                     </div>
@@ -198,63 +114,27 @@
             </section>
         </div>
 
-        <div class="tab-content" id="about-tab">
-            <section class="about">
+        <div class="tab-content" id="docs-tab">
+            <section class="docs-page">
                 <div class="hero-background">
                     <div class="grid-pattern"></div>
                 </div>
-                <div class="container">
-                    <h2 class="section-title animate-on-scroll">About Us</h2>
-                    <div class="about-content">
-                        <p>ArdentDev provides premium FiveM scripts and resources. We focus on delivering
-                            optimized, secure, and high-quality products for your server.</p>
-                        <p>Our scripts are regularly updated and come with full support via Discord.</p>
-                        <div class="about-features">
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Optimized Code</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Regular Updates</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Secure Encryption</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Instant Delivery</span>
-                            </div>
+                <div class="docs-container wrapper-layout">
+                    <!-- GitBook-style Sidebar -->
+                    <aside class="docs-sidebar" id="docsSidebar">
+                        <div class="docs-search-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="docsSearchInput" placeholder="Search docs..." autocomplete="off">
                         </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+                        <div id="docsSidebarContent">
+                            <!-- Populated by JS -->
+                        </div>
+                    </aside>
 
-        <div class="tab-content" id="contact-tab">
-            <section class="contact">
-                <div class="hero-background">
-                    <div class="grid-pattern"></div>
-                </div>
-                <div class="container">
-                    <h2 class="section-title animate-on-scroll">Contact Us</h2>
-                    <div class="contact-content">
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>support@ardentdev.shop</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-discord"></i>
-                                <span>Discord: .gg/ardentdev</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-clock"></i>
-                                <span>24/7 Support</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Main Documentation Content -->
+                    <main class="docs-main-content" id="docsMainContent">
+                        <!-- Populated by JS based on sidebar selection -->
+                    </main>
                 </div>
             </section>
         </div>
