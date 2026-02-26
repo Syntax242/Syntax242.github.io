@@ -3319,6 +3319,30 @@ p code {
     color: var(--text-primary);
 }
 
+.original-price {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.discount-badge {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: #000;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.2);
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .product-header {

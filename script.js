@@ -1,144 +1,44 @@
 const products = [
     {
         id: 1,
-        name: "Ardent Banking",
-        category: ["QBCore", "Qbox"],
-        description: "Advanced banking system with clean UI and transaction history.",
-        longDescription: `
-            <p>Ardent Banking allows your players to manage their finances with ease. Featuring a sleek, modern UI, this banking system is fully optimized for ESX servers.</p>
-            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
-            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
-        `,
-        features: [
-            "Modern & Clean UI",
-            "Transaction History",
-            "Loan System with Interest",
-            "Shared Accounts for Societies",
-            "ATM Robbery Integration",
-            "Optimized 0.00ms idle"
-        ],
-        image: "https://ardentdev.tebex.io/package/5673009/image",
-        video: "0QSdxoH6254",
-        price: "$24.99",
-        tebexLink: "https://ardentdev.tebex.io/package/5673009"
-    },
-    {
-        id: 2,
-        name: "Ardent Fishing",
-        category: ["QBCore", "Qbox"],
-        description: "Ardent Fishing allows your players to fish in the game.",
-        longDescription: `
-            <p>Ardent Fishing allows your players to fish in the game. Featuring a sleek, modern UI, this fishing system is fully optimized for QBCore servers.</p>
-            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
-            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
-        `,
-        features: [
-            "Framework Agnostic (Standalone)",
-            "Circular Status Indicators",
-            "Vehicle HUD with Speedometer",
-            "Compass & Street Name",
-            "Cinematic Mode",
-            "Fully Configurable CSS"
-        ],
-        image: "https://via.placeholder.com/800x600/1e293b/10b981?text=Ardent+HUD+Preview",
-        video: "u7PfSNzjNe0",
-        price: "$19.99",
-        tebexLink: "https://tebex.io/package/example2"
-    },
-    {
-        id: 3,
-        name: "Ardent Tablet",
-        category: ["QBCore", "Qbox"],
-        description: "Ardent Tablet allows your players to use a tablet in the game.",
-        longDescription: `
-            <p>Ardent Tablet allows your players to use a tablet in the game. Featuring a sleek, modern UI, this tablet system is fully optimized for QBCore servers.</p>
-            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
-            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
-        `,
-        features: [
-            "Citizen & Vehicle Database",
-            "Warrants & BOLOs",
-            "Incident Reports",
-            "Evidence System",
-            "EMS Medical Records",
-            "Dark/Light Mode Support"
-        ],
-        image: "https://via.placeholder.com/800x600/1e293b/3b82f6?text=Ardent+MDT+Preview",
-        video: "0QSdxoH6254",
-        price: "$34.99",
-        tebexLink: "https://tebex.io/package/example3"
-    },
-    {
-        id: 4,
         name: "Ardent Loading Screen",
         category: ["Standalone"],
-        description: "Ardent Loading Screen allows your server to have a loading screen.",
+        description: "A simple and modern loading screen with a built-in music player and info panels.",
         longDescription: `
-            <p>Ardent Loading Screen allows your server to have a loading screen. Featuring a sleek, modern UI, this loading screen system is fully optimized for QBCore servers.</p>
-            <p>It includes a comprehensive transaction history, allowing players to track their spending and income. The lending system enables players to borrow money with configurable interest rates and repayment terms.</p>
-            <p>Admins have full control over the banking system, with the ability to view all accounts, freeze suspicious accounts, and manage loans.</p>
+            <p>This loading screen provides a clean and professional welcome for your server. It focuses on a smooth user experience without overwhelming your players with too many effects.</p>
+            <p>It includes essential features like a music player, news updates, and a gallery. Everything is easy to set up and can be customized from a single file.</p>
         `,
         features: [
-            "Video Background Support",
+            "Video Background",
             "Music Player with Playlist",
-            "Server Information Display",
-            "Staff Team Showcase",
-            "Project Landing Page Style",
-            "Easy Configuration"
+            "Live News & Update Feed Panel",
+            "Server Events Calendar",
+            "Image Gallery",
+            "Staff Team",
+            "Dynamic Tips System",
+            "Fully Configurable (config.js)"
         ],
-        image: "https://via.placeholder.com/800x600/1e293b/f59e0b?text=Loading+Screen+Preview",
+        image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/z06Myi.png",
         video: "0QSdxoH6254",
-        price: "$14.99",
-        tebexLink: "https://tebex.io/package/example4"
-    },
-    {
-        id: 5,
-        name: "Ardent Item List",
-        category: ["QBCore", "Qbox"],
-        description: "Sleek drag-and-drop inventory system with crafting and shops.",
-        longDescription: `
-            <p>A robust inventory system designed for Qbox. The intuitive drag-and-drop interface makes managing items a breeze for your players.</p>
-            <p>Features include a crafting system with blueprints, player-owned shops, and item decay. The metadata support allows for unique items with specific properties.</p>
-        `,
-        features: [
-            "Drag & Drop Interface",
-            "Crafting System",
-            "Player Shops",
-            "Item Metadata & Decay",
-            "Hotbar Support",
-            "Optimized Performance"
-        ],
-        image: "https://via.placeholder.com/800x600/1e293b/8b5cf6?text=Ardent+Inventory+Preview",
-        video: "0QSdxoH6254",
-        price: "$29.99",
-        tebexLink: "https://tebex.io/package/example5"
-    },
-    {
-        id: 6,
-        name: "Ardent PostJob",
-        category: ["QBCore", "Qbox"],
-        description: "Beautiful multi-character selection screen with ped preview.",
-        longDescription: `
-            <p>Welcome your players with style. This multi-character script offers a cinematic character selection screen with high-quality ped previews.</p>
-            <p>Players can view their characters' details, such as job, cash, and bank balance, before spawning. The spawn selection map is integrated for a seamless experience.</p>
-        `,
-        features: [
-            "Ped Preview Animation",
-            "Character Stats Display",
-            "Spawn Selector Integration",
-            "Cinematic Camera Angles",
-            "Slot Management",
-            "Easy Setup"
-        ],
-        image: "https://via.placeholder.com/800x600/1e293b/ec4899?text=Multicharacter+Preview",
-        video: "0QSdxoH6254",
-        price: "$19.99",
-        tebexLink: "https://tebex.io/package/example6"
+        price: "$10.00",
+        originalPrice: "$10.00",
+        discount: false,
+        tebexLink: "https://ardentdev.tebex.io/package/5673009"
     }
 ];
 
 
 let currentCategory = 'all';
+
+// Helper function to calculate discount percentage
+function calculateDiscount(currentPrice, originalPrice) {
+    if (!originalPrice || !currentPrice) return null;
+    const current = parseFloat(currentPrice.replace(/[^0-9.-]+/g, ""));
+    const original = parseFloat(originalPrice.replace(/[^0-9.-]+/g, ""));
+    if (isNaN(current) || isNaN(original) || original <= 0) return null;
+    const discount = ((original - current) / original) * 100;
+    return Math.round(discount);
+}
 
 // Notification spam protection
 let notificationHistory = [];
@@ -272,10 +172,12 @@ function displayProducts(filteredProducts = products) {
         // Add click event to view product details
         productCard.addEventListener('click', () => viewProduct(product.id));
 
+        const discount = calculateDiscount(product.price, product.originalPrice);
+
         productCard.innerHTML = `
             <div class="product-card-inner">
                 <div class="product-image-section">
-                    <img src="https://img.youtube.com/vi/${product.video}/maxresdefault.jpg" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300/1f2937/6366f1?text=${encodeURIComponent(product.name)}'">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300/1f2937/6366f1?text=${encodeURIComponent(product.name)}'">
                     <div class="product-overlay">
                     </div>
                 </div>
@@ -283,11 +185,15 @@ function displayProducts(filteredProducts = products) {
                 <div class="product-info-section">
                     <div class="product-title-wrapper">
                         <h3 class="product-title">${product.name}</h3>
-                        ${product.category.map(c => `<span class="category-badge">${c}</span>`).join('')}
+                        ${product.category.includes('Standalone') ? `<span class="category-badge">Standalone</span>` : product.category.map(c => `<span class="category-badge">${c}</span>`).join('')}
                     </div>
                     <p class="product-text">${product.description}</p>
                     <div class="product-footer">
-                         <span class="product-price">${product.price}</span>
+                         <div class="price-container">
+                             ${product.discount && product.originalPrice ? `<span class="original-price">${product.originalPrice}</span>` : ''}
+                             <span class="product-price">${product.price}</span>
+                             ${product.discount && discount ? `<span class="discount-badge">-%${discount}</span>` : ''}
+                         </div>
                     </div>
                 </div>
             </div>
@@ -305,7 +211,7 @@ function viewProduct(productId) {
     document.getElementById('detailVideo').src = `https://www.youtube.com/embed/${product.video}?rel=0&modestbranding=1`;
     document.getElementById('detailTitle').textContent = product.name;
     const detailCategoryEl = document.getElementById('detailCategory');
-    detailCategoryEl.innerHTML = product.category.map(c => `<span class="category-badge">${c}</span>`).join('');
+    detailCategoryEl.innerHTML = product.category.includes('Standalone') ? `<span class="category-badge">Standalone</span>` : product.category.map(c => `<span class="category-badge">${c}</span>`).join('');
     document.getElementById('detailShortDesc').textContent = product.description;
 
     // Populate Long Description (HTML supported)
@@ -321,7 +227,15 @@ function viewProduct(productId) {
         featuresList.appendChild(li);
     });
 
-    document.getElementById('detailPrice').textContent = product.price;
+    const discount = calculateDiscount(product.price, product.originalPrice);
+
+    document.getElementById('detailPrice').innerHTML = `
+        <div class="price-container">
+            ${product.discount && product.originalPrice ? `<span class="original-price" style="font-size: 1.5rem;">${product.originalPrice}</span>` : ''}
+            <span>${product.price}</span>
+            ${product.discount && discount ? `<span class="discount-badge" style="font-size: 1rem; padding: 0.3rem 0.8rem;">-%${discount}</span>` : ''}
+        </div>
+    `;
     document.getElementById('detailBuyBtn').href = product.tebexLink;
 
     // Switch View
@@ -389,14 +303,14 @@ function updateCategorySlider() {
 }
 
 function updateCategoryCounts() {
-    const categories = ['all', 'QBCore', 'Qbox', 'ESX', 'Standalone'];
+    const categories = ['all', 'QBCore', 'Qbox', 'ESX'];
     categories.forEach(cat => {
         const el = document.getElementById('count-' + cat);
         if (el) {
             if (cat === 'all') {
                 el.textContent = products.length;
             } else {
-                el.textContent = products.filter(p => p.category.includes(cat)).length;
+                el.textContent = products.filter(p => p.category.includes(cat) || p.category.includes('Standalone')).length;
             }
         }
     });
@@ -406,7 +320,7 @@ function filterProducts() {
     let filtered = products;
 
     if (currentCategory !== 'all') {
-        filtered = filtered.filter(p => p.category.includes(currentCategory));
+        filtered = filtered.filter(p => p.category.includes(currentCategory) || p.category.includes('Standalone'));
     }
 
     displayProducts(filtered);
