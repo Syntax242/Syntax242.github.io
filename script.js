@@ -23,7 +23,7 @@ const products = [
         price: "$10.00",
         originalPrice: "$10.00",
         discount: false,
-        tebexLink: "https://ardentdev.tebex.io/package/5673009"
+        tebexLink: "https://ardentdev.tebex.io/package/7287293"
     }
 ];
 
@@ -1004,3 +1004,4 @@ switchTab = function (tabName) {
         initDocs();
     }
 };
+
