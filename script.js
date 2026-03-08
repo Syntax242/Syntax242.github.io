@@ -19,7 +19,7 @@ const products = [
             "Fully Configurable (config.js)"
         ],
         image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/z06Myi.png",
-        video: "X7fHle80L7g",
+        video: "0QSdxoH6254",
         price: "$10.00",
         originalPrice: "$10.00",
         discount: false,
@@ -71,7 +71,7 @@ const products = [
             "Easy Installation"
         ],
         image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/WKN25g.png",
-        video: "2uniZcKJW-g",
+        video: "r5dcQPOyKKQ",
         price: "FREE",
         originalPrice: "FREE",
         discount: false,
@@ -671,13 +671,13 @@ const docsData = [
                     <h1 class="docs-title">Installation Guide</h1>
                     <p class="docs-text">Follow these steps to install any ArdentDev resource on your server.</p>
                     <ol class="docs-list">
-                        <li>Download the resource from your Tebex account or GitHub.</li>
-                        <li>Extract the folder into your server's <code>resources/[ardent]</code> directory.</li>
+                        <li>Download the resource from your CFX Portal.</li>
+                        <li>Extract the folder into your server's <code>resources</code> directory.</li>
                         <li>Configure the script's config file (<code>config.lua</code> or <code>config.js</code>).</li>
                         <li>Add the resource to your <code>server.cfg</code>.</li>
                         <li>Restart your FiveM server.</li>
                     </ol>
-                    <div class="docs-alert docs-alert-warning"><i class="fas fa-exclamation-triangle"></i><div><strong>Important:</strong> Do not rename any resource folder. Some scripts have name checks and will not work if renamed.</div></div>
+                    <div class="docs-alert docs-alert-warning"><i class="fas fa-exclamation-triangle"></i><div><strong>Important:</strong> Do not rename any resource folder. Our scripts have name checks and will not work if renamed.</div></div>
                     <div class="code-block-wrapper"><div class="code-header"><span>server.cfg</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-cfg"># ArdentDev Resources
 ensure adt-loading
 ensure adt-notify
@@ -1127,20 +1127,18 @@ function highlightSyntax(code, lang) {
         .replace(/>/g, '&gt;');
 
     if (lang === 'lua') {
-        escaped = escaped.replace(/(--.*)/g, '<span class="syn-comment">$1</span>');
-        escaped = escaped.replace(/('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")/g, '<span class="syn-string">$1</span>');
+
         const luaKw = /\b(local|function|end|if|then|else|elseif|return|for|while|do|repeat|until|in|not|and|or|true|false|nil|break|goto)\b/g;
         escaped = escaped.replace(luaKw, '<span class="syn-keyword">$1</span>');
         escaped = escaped.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-number">$1</span>');
         escaped = escaped.replace(/\b(Config)\b/g, '<span class="syn-global">$1</span>');
     } else if (lang === 'javascript' || lang === 'js') {
-        escaped = escaped.replace(/(\/\/.*)/g, '<span class="syn-comment">$1</span>');
-        escaped = escaped.replace(/('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*`)/g, '<span class="syn-string">$1</span>');
+
         const jsKw = /\b(const|let|var|function|return|if|else|for|while|class|new|this|import|export|from|default|async|await|try|catch|throw|typeof|instanceof|true|false|null|undefined)\b/g;
         escaped = escaped.replace(jsKw, '<span class="syn-keyword">$1</span>');
         escaped = escaped.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-number">$1</span>');
     } else if (lang === 'cfg') {
-        escaped = escaped.replace(/(#.*)/g, '<span class="syn-comment">$1</span>');
+
         escaped = escaped.replace(/\b(ensure|start|stop|restart)\b/g, '<span class="syn-keyword">$1</span>');
     }
 
@@ -1168,6 +1166,3 @@ switchTab = function (tabName) {
         initDocs();
     }
 };
-
-
-
