@@ -19,7 +19,7 @@ const products = [
             "Fully Configurable (config.js)"
         ],
         image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/z06Myi.png",
-        video: "X7fHle80L7g",
+        video: "0QSdxoH6254",
         price: "$10.00",
         originalPrice: "$10.00",
         discount: false,
@@ -71,7 +71,7 @@ const products = [
             "Easy Installation"
         ],
         image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/WKN25g.png",
-        video: "2uniZcKJW-g",
+        video: "r5dcQPOyKKQ",
         price: "FREE",
         originalPrice: "FREE",
         discount: false,
@@ -87,6 +87,7 @@ function getPathForTab(tabName, product) {
     if (tabName === 'home') return '/';
     if (tabName === 'products') return '/products';
     if (tabName === 'docs') return '/docs';
+    if (tabName === 'reviews') return '/reviews';
     if (tabName === 'product-details' && product) return '/products/' + slugify(product.name);
     return '/';
 }
@@ -109,6 +110,8 @@ function handleRoute() {
         switchTab('products', true);
     } else if (path === '/docs') {
         switchTab('docs', true);
+    } else if (path === '/reviews') {
+        switchTab('reviews', true);
     } else if (path.startsWith('/products/')) {
         const slug = path.replace('/products/', '');
         const product = products.find(p => slugify(p.name) === slug);
@@ -178,6 +181,15 @@ function switchTab(tabName, skipPush) {
         filterProducts();
         setupScrollAnimations();
         setupFilterButtons();
+    }
+
+    if (tabName === 'reviews') {
+        if (typeof initReviews === 'function' && !window.reviewSketchInitialized) {
+            initReviews();
+            window.reviewSketchInitialized = true;
+        } else if (window.reviewSketch) {
+            window.reviewSketch.resize();
+        }
     }
 
     if (!skipPush) {
@@ -1165,5 +1177,4 @@ switchTab = function (tabName) {
     if (tabName === 'docs') {
         initDocs();
     }
-
 };

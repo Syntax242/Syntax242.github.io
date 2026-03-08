@@ -35,6 +35,7 @@
                 <div class="nav-slider"></div>
                 <a href="/" class="nav-tab active" data-tab="home">Home</a>
                 <a href="/products" class="nav-tab" data-tab="products">Products</a>
+                <a href="/reviews" class="nav-tab" data-tab="reviews">Reviews</a>
                 <a href="/docs" class="nav-tab" data-tab="docs">Docs</a>
             </nav>
             <a href="https://discord.gg/XJNvb3amge" target="_blank" class="header-cta">
@@ -144,6 +145,47 @@
             </section>
         </div>
 
+        <div class="tab-content" id="reviews-tab">
+            <section class="reviews-page"
+                style="position: relative; width: 100%; height: calc(100vh - 70px); background: #000; overflow: hidden;">
+                <div class="hero-background">
+                    <div class="grid-pattern"></div>
+                </div>
+                <div style="position: absolute; inset: 0; z-index: 2;">
+                    <canvas id="infinite-grid-menu-canvas"></canvas>
+
+                    <div id="review-horizontal-card" class="review-horizontal-card inactive">
+                        <div class="review-horizontal-inner">
+                            <div class="review-author-section">
+                                <div class="review-avatar-container">
+                                    <div class="review-avatar-glow"></div>
+                                    <img id="review-avatar" src="" alt="Author">
+                                </div>
+                                <div class="review-author-info-h">
+                                    <h4 id="review-author" class="review-author-name"></h4>
+                                    <div class="review-stars-h">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-text-section">
+                                <h2 id="review-title" class="review-title-h"></h2>
+                                <p id="review-desc" class="review-desc-h"></p>
+                            </div>
+                            <div class="review-action-section">
+                                <a id="review-btn" href="#" target="_blank" class="review-btn-h"
+                                    style="text-decoration: none;">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <div class="tab-content" id="product-details-tab">
             <section class="product-details">
                 <div class="container">
@@ -207,6 +249,8 @@
 
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/3.4.2/gl-matrix-min.js"></script>
+    <script src="/reviews.js"></script>
     <script src="/script.js"></script>
 </body>
 
