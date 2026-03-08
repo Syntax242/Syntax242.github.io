@@ -71,7 +71,7 @@ const products = [
             "Easy Installation"
         ],
         image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/WKN25g.png",
-        video: "r5dcQPOyKKQ",
+        video: "2uniZcKJW-g",
         price: "FREE",
         originalPrice: "FREE",
         discount: false,
@@ -1168,4 +1168,5 @@ switchTab = function (tabName) {
         initDocs();
     }
 };
+
 
