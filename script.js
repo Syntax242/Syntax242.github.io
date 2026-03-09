@@ -19,7 +19,7 @@ const products = [
             "Fully Configurable (config.js)"
         ],
         image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/z06Myi.png",
-        video: "0QSdxoH6254",
+        video: "X7fHle80L7g",
         price: "$10.00",
         originalPrice: "$10.00",
         discount: false,
@@ -71,7 +71,7 @@ const products = [
             "Easy Installation"
         ],
         image: "https://images.guns.lol/e7d2c74909113866fff54169156ad21fd9732a78/WKN25g.png",
-        video: "r5dcQPOyKKQ",
+        video: "2uniZcKJW-g",
         price: "FREE",
         originalPrice: "FREE",
         discount: false,
@@ -1177,4 +1177,5 @@ switchTab = function (tabName) {
     if (tabName === 'docs') {
         initDocs();
     }
+
 };
