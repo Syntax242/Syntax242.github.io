@@ -673,6 +673,7 @@ const docsData = [
                         <li><strong>Ardent Loading Screen</strong> — A modern loading screen with music player, news, events, gallery, and staff showcase.</li>
                         <li><strong>Ardent Notification</strong> — A sleek notification system with 4 types, custom positioning, and sound effects.</li>
                         <li><strong>Ardent Street Names</strong> — Displays the current street name and zone with 4 unique themes.</li>
+                        <li><strong>Ardent Text UI</strong> — A modern and interactive text UI for displaying prompts.</li>
                     </ul>
                 `
             },
@@ -693,7 +694,8 @@ const docsData = [
                     <div class="code-block-wrapper"><div class="code-header"><span>server.cfg</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-cfg"># ArdentDev Resources
 ensure adt-loading
 ensure adt-notify
-ensure adt-streetnames</code></pre></div>
+ensure adt-streetnames
+ensure adt-textui</code></pre></div>
                 `
             },
             {
@@ -708,6 +710,7 @@ ensure adt-streetnames</code></pre></div>
                         <li><code>adt-loading/config.js</code> — Loading Screen configuration</li>
                         <li><code>adt-notify/config.lua</code> — Notification System configuration</li>
                         <li><code>adt-streetnames/config.lua</code> — Street Names configuration</li>
+                        <li><code>adt-textui/config.lua</code> — Text UI configuration</li>
                     </ul>
                 `
             }
@@ -1007,6 +1010,56 @@ cfg.position = 'bottom-right'</code></pre></div>
     vehicle = 2500,
     ped = 3000
 }</code></pre></div>
+                `
+            }
+        ]
+    },
+    {
+        group: 'Ardent Text UI',
+        icon: 'fas fa-comment-alt',
+        pages: [
+            {
+                id: 'textui-overview',
+                title: 'Overview',
+                content: `
+                    <h1 class="docs-title">Ardent Text UI</h1>
+                    <p class="docs-text">A modern, clean, and highly customizable Text UI script for your fivem server. Ideal for displaying interaction prompts.</p>
+                    <h2 class="docs-subtitle">Features</h2>
+                    <ul class="docs-list">
+                        <li>Modern and interactive design</li>
+                        <li>Custom labels and key prompts</li>
+                        <li>Supports multiple UI elements via unique names</li>
+                        <li>Works with any Framework (Standalone)</li>
+                        <li>Optimized for maximum performance (0.00ms)</li>
+                        <li>Easily shown and hidden via exports</li>
+                        <li>Highly customizable textui positions</li>
+                    </ul>
+                `
+            },
+            {
+                id: 'textui-exports',
+                title: 'Exports & Usage',
+                content: `
+                    <h1 class="docs-title">Exports & Usage</h1>
+                    <p class="docs-text">Interact with the Text UI from any client-side script using the provided exports.</p>
+
+                    <h2 class="docs-subtitle">Show Export</h2>
+                    <p class="docs-text">Use this export to display a text UI element. Requires a unique name, the label text, and the key prompt.</p>
+                    <div class="code-block-wrapper"><div class="code-header"><span>client.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">exports["adt-textui"]:showtextui('uniqueName', 'label', 'keyLabel')</code></pre></div>
+
+                    <h2 class="docs-subtitle">Hide Export</h2>
+                    <p class="docs-text">Use this export to hide a previously displayed text UI element. Provide the unique name to target the correct UI.</p>
+                    <div class="code-block-wrapper"><div class="code-header"><span>client.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">exports["adt-textui"]:hidetextui('uniqueName')</code></pre></div>
+
+                    <h2 class="docs-subtitle">Example Usage</h2>
+                    <p class="docs-text">Here is a complete, working example using test commands to demonstrate showing and hiding the Text UI element.</p>
+                    <div class="code-block-wrapper"><div class="code-header"><span>client.lua</span><button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button></div><pre><code class="language-lua">RegisterCommand('textshow', function()
+    exports["adt-textui"]:showtextui('testname', 'Welcome!', 'E')
+end)
+
+RegisterCommand('texthide', function()
+    exports["adt-textui"]:hidetextui('testname')
+end)</code></pre></div>
                 `
             }
         ]
